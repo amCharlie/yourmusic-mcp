@@ -1,0 +1,53 @@
+[project]
+name = "yourmusic-fun-mcp"
+version = "1.0.0" 
+description = "The MCP server of YourMusic.Fun - AI Music Generation Platform"
+authors = [
+    { name = "YourMusic.Fun Team", email = "support@yourmusic.fun" }
+]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+keywords = [
+    "yourmusic",
+    "mcp",
+    "music",
+    "song",
+    "ai",
+    "generate",
+    "model-context-protocol"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "sounddevice==0.5.1",
+    "soundfile==0.13.1",
+    "requests==2.31.0",
+    "httpx>=0.24.0"
+]
+
+[project.scripts]
+yourmusic-fun-mcp = "yourmusic_fun_mcp.api:main"
+
+[project.urls]
+Homepage = "https://yourmusic.fun"
+Documentation = "https://app.yourmusic.fun/docs"
+Repository = "https://github.com/yourmusic-fun/yourmusic-fun-mcp"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

@@ -208,24 +208,6 @@ yourmusic_fun_mcp/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Support & Community
-
-- **Platform**: [YourMusic.Fun](https://app.yourmusic.fun)
-- **Documentation**: [API Docs](https://app.yourmusic.fun/docs)
-- **Issues**: [GitHub Issues](https://github.com/yourmusic-fun/yourmusic-fun-mcp/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourmusic-fun/yourmusic-fun-mcp/discussions)
-
-## 🌟 Contributing
-
-We welcome contributions! Please feel free to:
-
-- 🐛 Report bugs
-- 💡 Suggest new features
-- 📝 Improve documentation
-- 🔧 Submit pull requests
-
-See our [Contributing Guide](CONTRIBUTING.md) for more details.
-
 ---
 
 <div align="center">

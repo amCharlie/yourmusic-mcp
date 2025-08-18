@@ -24,7 +24,7 @@
 
 ## 🚀 Quickstart with Claude Desktop
 
-1. **Get Your API Key**: Obtain your API key from [YourMusic.Fun Platform](https://app.yourmusic.fun/apiKeys)
+1. **Get Your API Key**: Obtain your API key from [YourMusic.Fun Platform](https://app.yourmusic.fun)
 2. **Install uv**: Install the Python package manager with `curl -LsSf https://astral.sh/uv/install.sh | sh`
 3. **Configure Claude**: Go to Claude > Settings > Developer > Edit Config > claude_desktop_config.json and add:
 

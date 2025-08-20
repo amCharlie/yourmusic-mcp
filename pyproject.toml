@@ -3,7 +3,7 @@ name = "yourmusic-fun-mcp"
 version = "1.0.0" 
 description = "The MCP server of YourMusic.Fun - AI Music Generation Platform"
 authors = [
-    { name = "YourMusic.Fun Team", email = "support@yourmusic.fun" }
+    { name = "YourMusic.Fun Team", email = "yourmusicfun@163.com" }
 ]
 readme = "README.md"
 classifiers = [
@@ -40,8 +40,7 @@ yourmusic-fun-mcp = "yourmusic_fun_mcp.api:main"
 
 [project.urls]
 Homepage = "https://yourmusic.fun"
-Documentation = "https://app.yourmusic.fun/docs"
-Repository = "https://github.com/yourmusic-fun/yourmusic-fun-mcp"
+Repository = "https://github.com/amCharlie/yourmusic-mcp"
 
 [build-system]
 requires = ["setuptools>=45", "wheel"]

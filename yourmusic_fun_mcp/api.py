@@ -89,25 +89,27 @@ def handle_input_file(file_path: str, audio_content_check: bool = True) -> Path:
 
 
 @mcp.tool(
-    description="""🎼 灵感模式：根据简单的文字描述生成歌曲（AI自动生成标题、歌词、风格等）
+    description="""🎼 Inspiration Mode: Generate songs based on simple text descriptions (AI automatically generates title, lyrics, style, etc.)
     
-    使用场景：当用户只提供简单的歌曲主题或情感描述，没有详细指定歌名、歌词、风格等具体参数时使用。
+    Use case: Use when users only provide simple song themes or emotional descriptions without detailed specifications for song name, lyrics, style, and other specific parameters.
     
-    示例输入：
-    - "帮我生成一首关于和平早晨的歌"
-    - "想要一首表达思念的歌曲"
-    - "创作一首关于友谊的音乐"
+    Example inputs:
+    - "Help me generate a song about a peaceful morning"
+    - "Want a song that expresses longing"
+    - "Create music about friendship"
     
     ⚠️ COST WARNING: This tool makes an API call to YourMusic.Fun which may incur costs. Only use when explicitly requested by the user.
     
+    Language Note: When calling this method, please pass the prompt in the corresponding language version based on the user's input language.
+    
     Args:
-        prompt (str): 歌曲主题或情感描述，1-1200字符。例如："关于和平早晨的歌曲"、"表达思念的歌曲"
-        instrumental (bool, optional): 是否纯音乐，默认False（带人声）
-        model_type (str, optional): AI模型类型，默认'chirp-v3-5'
-        output_directory (str, optional): 保存目录，默认保存到桌面
+        prompt (str): Song theme or emotional description, 1-1200 characters. Example: "Song about peaceful morning", "Song expressing longing"
+        instrumental (bool, optional): Whether instrumental only, default False (with vocals)
+        model_type (str, optional): AI model type, default 'chirp-v3-5'
+        output_directory (str, optional): Save directory, default saves to desktop
     
     Returns:
-        生成的歌曲文件列表，文件名格式：标题1.mp3, 标题2.mp3
+        Generated song file list, filename format: title1.mp3, title2.mp3
     """
 )
 async def generate_prompt_song(prompt: str, instrumental: bool = False, model_type: str = "chirp-v3-5", output_directory: str | None = None) -> list[TextContent]:
@@ -134,7 +136,7 @@ async def generate_prompt_song(prompt: str, instrumental: bool = False, model_ty
             "prompt": prompt,
             "instrumental": instrumental,
             "model_type": model_type,
-            "albumId": None  # 可选参数
+            "albumId": None 
         }
         
         async with httpx.AsyncClient(timeout=httpx.Timeout(60.0)) as client:
@@ -222,29 +224,31 @@ async def generate_prompt_song(prompt: str, instrumental: bool = False, model_ty
 
 
 @mcp.tool(
-    description="""🎵 自定义模式：根据详细的歌曲信息生成歌曲（用户指定歌名、歌词、风格等具体参数）
+    description="""🎵 Custom Mode: Generate songs based on detailed song information (user specifies song name, lyrics, style, and other specific parameters)
     
-    使用场景：当用户提供了详细的歌曲信息，包括歌名、歌词、风格、人声性别等具体参数时使用。
+    Use case: Use when users provide detailed song information including song name, lyrics, style, vocal gender, and other specific parameters.
     
-    示例输入：
-    - 包含歌名、完整歌词、风格要求等详细信息
-    - 例如："歌名：蝉蜕的夏天，歌词：[完整歌词]，使用男声，风格使用民谣"
+    Example inputs:
+    - Contains song name, complete lyrics, style requirements, and other detailed information
+    - Example: "Song name: Summer of Cicada Shedding, Lyrics: [complete lyrics], use male voice, style use folk"
     
     ⚠️ COST WARNING: This tool makes an API call to YourMusic.Fun which may incur costs. Only use when explicitly requested by the user.
     
+    Language Note: When calling this method, please pass the title and lyrics in the corresponding language version based on the user's input language.
+    
     Args:
-        title (str): 歌曲标题，例如："蝉蜕的夏天"
-        lyric (str): 完整歌词内容，支持多段歌词格式
-        model_type (str, optional): AI模型类型，默认'chirp-v4'
-        tags (str, optional): 音乐风格标签，例如：'pop', 'rock', 'jazz', 'folk'
-        instrumental (bool, optional): 是否纯音乐，默认False（带人声）
-        vocal_gender (str, optional): 人声性别，'m'为男声，'f'为女声，默认'm'
-        weirdness_constraint (float, optional): 怪异度约束，0.0-1.0，默认0.6
-        style_weight (float, optional): 风格权重，0.0-1.0，默认0.7
-        output_directory (str, optional): 保存目录，默认保存到桌面
+        title (str): Song title, example: "Summer of Cicada Shedding"
+        lyric (str): Complete lyrics content, supports multi-paragraph lyrics format
+        model_type (str, optional): AI model type, default 'chirp-v4'
+        tags (str, optional): Music style tags, example: 'pop', 'rock', 'jazz', 'folk'
+        instrumental (bool, optional): Whether instrumental only, default False (with vocals)
+        vocal_gender (str, optional): Vocal gender, 'm' for male, 'f' for female, default 'm'
+        weirdness_constraint (float, optional): Weirdness constraint, 0.0-1.0, default 0.6
+        style_weight (float, optional): Style weight, 0.0-1.0, default 0.7
+        output_directory (str, optional): Save directory, default saves to desktop
     
     Returns:
-        生成的歌曲文件列表，文件名格式：标题1.mp3, 标题2.mp3
+        Generated song file list, filename format: title1.mp3, title2.mp3
     """
 )
 async def generate_custom_song(
@@ -445,7 +449,7 @@ def play(
     sd.wait()
 
 
-@mcp.tool(description="Play an audio file. Supports WAV and MP3 formats.")
+@mcp.tool(description="Play an audio file. Supports WAV, MP3, M4A, AAC, OGG, FLAC, MP4, AVI, MOV, WMV formats.")
 def play_audio(input_file_path: str) -> TextContent:
     """播放音频文件的MCP工具"""
     file_path = handle_input_file(input_file_path)

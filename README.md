@@ -18,7 +18,7 @@
 - **🎵 Dual Generation Modes**: Support for both inspiration mode and custom mode
 - **🔊 Audio Playback**: Play generated audio files directly in your MCP client
 - **📁 Flexible Output**: Save generated music to custom directories or default to desktop
-- **🤖 Multiple Models**: Support for different AI models including chirp-v3-5 and chirp-v4
+- **🤖 Multiple Models**: Support for different AI models including chirp-4.5+ and chirp-4.5
 - **🎹 Instrumental Options**: Generate instrumental-only music or full songs with vocals
 - **⚡ Async Processing**: Efficient asynchronous handling of long-running music generation tasks
 
